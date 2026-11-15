@@ -110,7 +110,7 @@ PR_EXPECT = ("draft", "none")
 # A fact a grounded check reports (slide 30), and a label a person or the judge gives.
 FACT_VALUES = ("present", "missing", "wrong")
 VERDICTS = ("pass", "fail")
-# The five claims of Part C (slide 57), and the measure each is judged on.
+# The five claims of Part C (slide 58), and the measure each is judged on.
 CLAIMS = {"tokens": "tokens", "plan": "repeats", "examples": "wasted", "checkpoint": "duplicates",
           "split": "score"}
 

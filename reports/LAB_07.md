@@ -32,7 +32,7 @@ Model: <vendor and model>, the same for every run and for the judge.
 
 - The claim, its two arms, the measure and the sign of the gain:
 - The first three sweeps: each arm's *s*, and the cost of one sweep:
-- *δ*, the sweeps it needs, and the price (slide 54):
+- *δ*, the sweeps it needs, and the price (slide 55):
 - The bar and the group rule, as committed, and the commit:
 
 **The results**, from `results/`.
@@ -51,7 +51,7 @@ Model: <vendor and model>, the same for every run and for the judge.
 | should-not-act | | |
 
 - The verdict, by your bar, and why:
-- Cost beside the score (slide 53):
+- Cost beside the score (slide 54):
 - Each part of your prediction that missed, and the run that shows why:
 
 **Where the failed runs first went wrong** (slide 29), last good step down the side, first wrong step across.

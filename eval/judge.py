@@ -6,7 +6,7 @@ section 15.10).
     python -m eval.judge recorded      # the agent way's recorded comments: recorded.jsonl
 
 Your judge reads one output, its issue and what RepoMind's tools returned, and
-answers with slide 35's fixed reply: JSON with a one-line "reasoning", then an
+answers with slide 36's fixed reply: JSON with a one-line "reasoning", then an
 "answer", "Pass" or "Fail". Every call goes through a metered judge session, so its
 tokens and cost are recorded and priced, and count against lab_token_ceiling:
 
@@ -37,19 +37,19 @@ PROMPT = ROOT / "prompts" / "judge.md"
 
 class CoinJudge(ValueError):
     """TPR + TNR is within 0.1 of 1: the judge is no better than a coin. Fix it, do not
-    correct it (slide 43)."""
+    correct it (slide 44)."""
 
 
 def correct(p: float, tpr: float, tnr: float) -> float:
     """The share you would pass, labelling by hand, from the judge's pass rate p on
-    outputs nobody labelled: (p + TNR - 1) / (TPR + TNR - 1) (slide 43), clipped to
+    outputs nobody labelled: (p + TNR - 1) / (TPR + TNR - 1) (slide 44), clipped to
     0 to 1. Raises CoinJudge when TPR + TNR is within 0.1 of 1."""
     raise NotImplementedError("Part D, task 5")
 
 
 def rates(verdicts: dict[str, str], labels: dict[str, str]) -> tuple[float, float]:
     """(TPR, TNR) of the judge's verdicts against your labels, each "pass" or "fail",
-    on the items both cover (slide 42): TPR is the share of the labelled passes the
+    on the items both cover (slide 43): TPR is the share of the labelled passes the
     judge passed, TNR the share of the labelled fails it failed."""
     raise NotImplementedError("Part D, task 4")
 
@@ -58,7 +58,7 @@ def bootstrap(verdicts: dict[str, str], labels: dict[str, str], p: float,
               resamples: int = 2000, seed: int = 0) -> tuple[float, float]:
     """The middle 95% of the corrected rate over resamples of the test items, drawn
     with replacement, as many as there are, each time recomputing TPR and TNR
-    (slide 43). A resample on which the judge is a coin is left out."""
+    (slide 44). A resample on which the judge is a coin is left out."""
     raise NotImplementedError("Part D, task 5")
 
 

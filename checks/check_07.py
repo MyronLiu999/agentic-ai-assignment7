@@ -76,7 +76,7 @@ HARNESS_SHA: dict[str, str] = {
     "harness/trace.py": "7324d3dd3ca69973",
     "harness/client.py": "d406659a650922be",
     "harness/tracker.py": "388774cd64f872eb",
-    "harness/formats.py": "26aadcc5b976cad3",
+    "harness/formats.py": "c641dac069dd45ee",
     "harness/scripted.py": "edf507b6eeb9395e",
     "harness/meter.py": "68f2c2741a259f43",
     "harness/switches.py": "d0807a3fd16db252",

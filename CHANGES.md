@@ -32,3 +32,8 @@ Removals are logged like additions.
 - **Added:** nothing
 - **Removed:** nothing
 - **Constrained:** multi-agent decomposition, measured against one agent at the same budget and not merged; RepoMind stays one agent
+
+## Assignment 7 (in progress)
+- **Added:** 30 source-grounded tasks, 60 trace-review notes, observed-state evaluation, finite-sample statistics, trajectory metrics, result export and 13 evaluation tests.
+- **Removed:** nothing from the starter.
+- **Constrained:** only observed state determines passes; scripted measurements remain separate; real comparison and judge validation await their required prerequisites.

@@ -1,0 +1,28 @@
+id: g03
+kind: single
+issues:
+- 4603
+stratum: adversarial
+decision: act
+expect:
+  comment:
+    label: bug
+    file: src/util/money.ts
+  labels:
+  - bug
+  pr: draft
+source: Issue 4603 affects CSV and UI alike; src/util/money.ts parseAmount strips
+  commas but treats dots as decimals, so CLP 12.500 becomes 13. ReportTable is not
+  the cause.
+runs:
+- agent-issue-4603-s01-fad434
+- planned-issue-4603-s01-9529f3
+reference:
+  calls: 6
+  tools:
+  - issues_read
+  - code_search
+  - code_read_file
+  - issues_label
+  - pulls_open
+  - issues_comment

@@ -28,12 +28,17 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from pathlib import Path
 
 from harness import LAB, ROOT
 from harness import switches as switch_board
 from harness.formats import UNFINISHED
 from harness.trace import read_trace
+from harness.tasks import end_state, load_tasks, read_subset
+from harness.tracker import Tracker
+from eval.grounded import check
+from eval.metrics import metrics
 
 
 def finished_runs(way: str, switches: dict | None = None, root: Path = ROOT,
@@ -80,8 +85,71 @@ def main(argv=None) -> int:
     p.add_argument("--scripted", action="store_true",
                    help="the runs on a scripted model, to test this script for free: writes "
                         "results/scripted_<arm>.jsonl, which the checker never reads")
-    p.parse_args(argv)
-    raise NotImplementedError("Part B, task 1")
+    args = p.parse_args(argv)
+    switches = {}
+    for item in args.switch:
+        name, sep, value = item.partition("=")
+        name, value = name.lower(), value.lower()
+        if not sep or name not in switch_board.DEFAULTS:
+            p.error(f"unknown switch {item!r}")
+        if isinstance(switch_board.DEFAULTS[name], bool):
+            if value not in ("1", "0", "true", "false", "on", "off", "yes", "no"):
+                p.error(f"invalid boolean switch {item!r}")
+            value = value in ("1", "true", "on", "yes")
+        elif value not in ({"derived", "uuid"} if name == "key_mode" else {"on", "off"}):
+            p.error(f"invalid switch {item!r}")
+        switches[name] = value
+    tasks = {task.id: task for task in load_tasks(args.tasks)}
+    subset = set(read_subset(args.subset))
+    if not subset or not subset <= tasks.keys():
+        p.error("subset must contain known task IDs")
+    tracker = Tracker(flaky=False, readback_fail=False)
+    rows = []
+    for lines in finished_runs(args.way, switches, scripted=args.scripted):
+        start = lines[0]
+        if start.get("task") not in subset:
+            continue
+        task = tasks[start["task"]]
+        state = end_state(tracker, start["run_id"], task)
+        rows.append(result_row(lines, task, state, args.arm, args.claim,
+                               call_record(start["run_id"])))
+    target = ROOT / "results" / f"{'scripted_' if args.scripted else ''}{args.arm}.jsonl"
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text("".join(json.dumps(row, ensure_ascii=False) + "\n" for row in rows), encoding="utf-8")
+    print(f"{len(rows)} runs written to {target.relative_to(ROOT)}")
+    return 0
+
+
+def result_row(lines, task, state, arm, claim, calls):
+    """Build a result from observed state and trace; never from an agent's verdict."""
+    start = lines[0]
+    end = next(line for line in reversed(lines) if line.get("type") == "run_end")
+    totals = end["totals"]
+    checked = check(task, state)
+    measured = metrics(lines, task)
+    if claim == "tokens":
+        measure = totals["total_tokens"]
+    elif claim == "plan":
+        measure = measured["repeats"]
+    elif claim == "examples":
+        measure = sum(call.get("outcome") in ("rejected", "error", "protocol") for call in calls)
+        measure += sum(call.get("role") == "search" and bool(re.search(r'"count":\s*0\b',
+                           str(call.get("result", "")))) for call in calls)
+    elif claim == "checkpoint":
+        measure = sum(max(0, len(state.get(n, state.get(str(n), {})).get(field, [])) - 1)
+                      for n in task.issues for field in ("comments", "prs"))
+    elif claim == "split":
+        measure = 100 * int(checked["passed"])
+    else:
+        raise ValueError(f"unknown claim {claim!r}")
+    return {"arm": arm, "way": start["way"],
+            "switches": {**switch_board.DEFAULTS, **start.get("switches", {})},
+            "run_id": start["run_id"], "task": task.id, "stratum": task.stratum,
+            "sweep": start["sweep"], "passed": checked["passed"],
+            "facts": {"present": sum(v == "present" for v in checked["facts"].values()),
+                      "total": len(checked["facts"])}, "measure": measure,
+            "tokens": totals["total_tokens"], "cost_usd": totals["cost_usd"],
+            "wall_clock_s": end["elapsed_s"], "metrics": measured}
 
 
 if __name__ == "__main__":

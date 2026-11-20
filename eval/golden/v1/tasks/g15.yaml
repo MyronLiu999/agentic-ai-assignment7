@@ -1,0 +1,28 @@
+id: g15
+kind: single
+issues:
+- 4615
+stratum: unusual
+decision: act
+expect:
+  comment:
+    label: bug
+    file: src/api/uploads.ts
+  labels:
+  - bug
+  pr: draft
+source: Issue 4615 reports mojibake from both browser and curl; src/api/uploads.ts
+  stores file.originalname unchanged and returns that stored filename, so decoding
+  belongs at this upload boundary.
+runs:
+- planned-issue-4615-s01-c6aced
+- workflow-issue-4615-s01-f75af0
+reference:
+  calls: 6
+  tools:
+  - issues_read
+  - code_search
+  - code_read_file
+  - issues_label
+  - pulls_open
+  - issues_comment

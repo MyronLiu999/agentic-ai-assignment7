@@ -30,3 +30,7 @@ The table below is RepoMind as Assignment 5 leaves it: its working solution.
 | Evaluation | The grounded check reads the tracker, never the agent | `eval/check_triage.py:7` | partial: offline only |
 
 **Empty layers: 0 of 7**, and three are partial.
+
+## Assignment 7 evaluation (in progress)
+
+The evaluation layer now loads a versioned 30-task golden set, checks run-scoped tracker state in eval/grounded.py, counts trajectories in eval/metrics.py, and exports completed runs in eval/results_07.py. eval/stats.py supplies finite-sample pass metrics and sweep-based uncertainty. The real-model comparison and human-validated judge are not yet complete. See reports/LAB_07.md for validation and environment limitations.

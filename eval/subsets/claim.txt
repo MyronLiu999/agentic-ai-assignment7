@@ -1,0 +1,9 @@
+# Plan claim: two tasks per stratum; freeze and push before real sweeps.
+g01
+g12
+g02
+g11
+g05
+g33
+g13
+g28

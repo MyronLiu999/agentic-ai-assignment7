@@ -41,6 +41,7 @@ gives 3, 0.8, 1.0, 1 and 1.
 from __future__ import annotations
 
 import json
+from pathlib import PurePosixPath
 
 # Writes, by role name and by RepoMind's tool names: their output is what they changed,
 # so none is ever an orphan.
@@ -57,4 +58,47 @@ def canonical(value) -> str:
 
 
 def metrics(lines: list[dict], task) -> dict:
-    raise NotImplementedError("Part B, task 4")
+    calls = [line for line in lines if line.get("type") == "tool_call"]
+    names = {call["name"] for call in calls}
+    reference = set(task.reference["tools"])
+    seen, repeats = set(), 0
+    final_comment = ""
+    for call in calls:
+        key = (call["name"], canonical(call.get("input", {})))
+        repeats += key in seen
+        seen.add(key)
+        if call["name"] in COMMENT_WRITES:
+            final_comment = str(call.get("input", {}).get("body", ""))
+    orphans = 0
+    for i, call in enumerate(calls):
+        if call["name"] in WRITES:
+            continue
+        identifiers = call.get("paths") or list(_values(call.get("input", {})))
+        later = (" ".join(canonical(c.get("input", {})) for c in calls[i + 1:])
+                 + " " + final_comment).lower()
+        used = False
+        for value in identifiers:
+            value = str(value).lower()
+            if len(value) < 3:
+                continue
+            if value in later or (call.get("paths") and PurePosixPath(value).name in later):
+                used = True
+                break
+        orphans += not used
+    end = next((line for line in reversed(lines) if line.get("type") == "run_end"), {})
+    return {"step_count": len(calls) - task.reference["calls"],
+            "precision": len(names & reference) / len(names) if names else None,
+            "recall": len(names & reference) / len(reference) if reference else 1.0,
+            "repeats": repeats, "orphans": orphans, "no_tools": not calls,
+            "cost_usd": end.get("totals", {}).get("cost_usd", 0.0),
+            "latency_s": end.get("elapsed_s", 0.0)}
+
+
+def _values(inputs):
+    for value in inputs.values():
+        if isinstance(value, list):
+            for item in value:
+                if item is not None and not isinstance(item, (dict, list)):
+                    yield str(item)
+        elif value is not None and not isinstance(value, dict):
+            yield str(value)

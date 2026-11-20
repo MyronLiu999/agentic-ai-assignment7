@@ -1,0 +1,19 @@
+id: g07
+kind: single
+issues:
+- 4607
+stratum: should_not_act
+decision: stop
+expect:
+  comment: null
+  labels: []
+  pr: none
+source: Issue 4607 is an unrelated advertisement for bookkeeping services and requests
+  no Ledgerline work; leave it unchanged.
+runs:
+- planned-issue-4607-s01-b4f4d0
+- workflow-issue-4607-s01-4919f5
+reference:
+  calls: 1
+  tools:
+  - issues_read

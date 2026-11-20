@@ -1,0 +1,18 @@
+{
+  "tasks": 8,
+  "sweeps_per_arm": 3,
+  "pilot_sd": {
+    "A": 0.0,
+    "B": 0.0
+  },
+  "sizing_sd": {
+    "A": 0.125,
+    "B": 0.125
+  },
+  "zero_sd_fallback": 0.125,
+  "delta": 0.5,
+  "n_needed": 1,
+  "pooled_mean_sweep_cost_usd": 0.3122296666666666,
+  "price_usd": 0.6244593333333333,
+  "note": "Three-sweep SD is uncertain. No arm mean or gain has been compared. Commit and push the threshold and prediction before sweep 4."
+}

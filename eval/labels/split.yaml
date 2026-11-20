@@ -1,0 +1,9 @@
+# Part D, task 3: the split of fixtures/judge/outputs/ (checks/FORMATS.md, section 15.9).
+# Drawn once, before the judge was written: random.Random(20261120), shuffled within each
+# system (claude-haiku-5-5, claude-sonnet-5-5) so both sets hold both systems' outputs.
+# examples: 9 of 60 (15%), the pool the judge prompt's examples come from;
+# tuning: 25 (42%), to refine the prompt against; test: 26 (43%), held out.
+# Never moved after commit: a moved item is a judge validated on what it saw.
+examples: [j02, j03, j06, j07, j19, j22, j30, j59, j60]
+tuning: [j04, j05, j08, j09, j10, j14, j16, j17, j20, j21, j29, j31, j33, j35, j36, j39, j40, j41, j42, j46, j51, j52, j55, j56, j58]
+test: [j01, j11, j12, j13, j15, j18, j23, j24, j25, j26, j27, j28, j32, j34, j37, j38, j43, j44, j45, j47, j48, j49, j50, j53, j54, j57]

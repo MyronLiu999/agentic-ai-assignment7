@@ -16,86 +16,572 @@
     "thinnest": "unusual"
   },
   "claim": {
-    "claim": null,
-    "measure": null,
-    "gain": null,
-    "k": null,
-    "sweeps": null,
-    "s_a": null,
-    "s_b": null,
-    "delta": null,
-    "n_needed": null,
-    "price_usd": null,
-    "difference": null,
-    "interval": null,
-    "by_stratum": {},
-    "verdict": null
+    "claim": "plan",
+    "measure": "repeats",
+    "gain": "B - A",
+    "k": 3,
+    "sweeps": 5,
+    "s_a": 0.0,
+    "s_b": 0.0,
+    "delta": 0.5,
+    "n_needed": 1,
+    "price_usd": 0.6244593333333333,
+    "difference": 0,
+    "interval": [
+      0.0,
+      0.0
+    ],
+    "by_stratum": {
+      "adversarial": {
+        "difference": 0,
+        "interval": [
+          0.0,
+          0.0
+        ]
+      },
+      "routine": {
+        "difference": 0,
+        "interval": [
+          0.0,
+          0.0
+        ]
+      },
+      "should_not_act": {
+        "difference": 0,
+        "interval": [
+          0.0,
+          0.0
+        ]
+      },
+      "unusual": {
+        "difference": 0,
+        "interval": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "verdict": "cannot_settle"
   },
   "arms": {
     "A": {
-      "way": null,
-      "switches": {},
-      "runs": 0,
+      "runs": 40,
       "measure": {
-        "mean": null,
-        "sd": null
+        "mean": 0,
+        "sd": 0.0
       },
       "score": {
-        "mean": null,
-        "sd": null
+        "mean": 22.5,
+        "sd": 5.5901699437494745
       },
-      "pass_at_k": null,
-      "pass_hat_k": null,
-      "facts_share": null,
-      "cost_per_run_usd": null,
+      "pass_at_k": 0.3875,
+      "pass_hat_k": 0.125,
+      "facts_share": 0.7280898876404495,
+      "cost_per_run_usd": 0.036940425,
       "no_tools": 0,
-      "by_stratum": {}
+      "way": "planned",
+      "switches": {},
+      "by_stratum": {
+        "adversarial": {
+          "runs": 10,
+          "measure": 0,
+          "score": 10,
+          "pass_at_k": 0.3,
+          "pass_hat_k": 0.0,
+          "facts_share": 0.7130434782608696,
+          "cost_per_run_usd": 0.0366931,
+          "no_tools": 0,
+          "measure_sd": 0.0,
+          "score_sd": 22.360679774997898
+        },
+        "routine": {
+          "runs": 10,
+          "measure": 0,
+          "score": 0,
+          "pass_at_k": 0.0,
+          "pass_hat_k": 0.0,
+          "facts_share": 0.6666666666666666,
+          "cost_per_run_usd": 0.0354114,
+          "no_tools": 0,
+          "measure_sd": 0.0,
+          "score_sd": 0.0
+        },
+        "should_not_act": {
+          "runs": 10,
+          "measure": 0,
+          "score": 70,
+          "pass_at_k": 0.95,
+          "pass_hat_k": 0.5,
+          "facts_share": 0.9444444444444444,
+          "cost_per_run_usd": 0.0352288,
+          "no_tools": 0,
+          "measure_sd": 0.0,
+          "score_sd": 27.386127875258307
+        },
+        "unusual": {
+          "runs": 10,
+          "measure": 0,
+          "score": 10,
+          "pass_at_k": 0.3,
+          "pass_hat_k": 0.0,
+          "facts_share": 0.6416666666666667,
+          "cost_per_run_usd": 0.0404284,
+          "no_tools": 0,
+          "measure_sd": 0.0,
+          "score_sd": 22.360679774997898
+        }
+      }
     },
     "B": {
-      "way": null,
-      "switches": {},
-      "runs": 0,
+      "runs": 40,
       "measure": {
-        "mean": null,
-        "sd": null
+        "mean": 0,
+        "sd": 0.0
       },
       "score": {
-        "mean": null,
-        "sd": null
+        "mean": 55.0,
+        "sd": 16.77050983124842
       },
-      "pass_at_k": null,
-      "pass_hat_k": null,
-      "facts_share": null,
-      "cost_per_run_usd": null,
+      "pass_at_k": 0.825,
+      "pass_hat_k": 0.225,
+      "facts_share": 0.8921348314606742,
+      "cost_per_run_usd": 0.037205225,
       "no_tools": 0,
-      "by_stratum": {}
+      "way": "agent",
+      "switches": {},
+      "by_stratum": {
+        "adversarial": {
+          "runs": 10,
+          "measure": 0,
+          "score": 30,
+          "pass_at_k": 0.5,
+          "pass_hat_k": 0.05,
+          "facts_share": 0.8434782608695652,
+          "cost_per_run_usd": 0.0349869,
+          "no_tools": 0,
+          "measure_sd": 0.0,
+          "score_sd": 27.386127875258307
+        },
+        "routine": {
+          "runs": 10,
+          "measure": 0,
+          "score": 80,
+          "pass_at_k": 1.0,
+          "pass_hat_k": 0.55,
+          "facts_share": 0.95,
+          "cost_per_run_usd": 0.0451847,
+          "no_tools": 0,
+          "measure_sd": 0.0,
+          "score_sd": 27.386127875258307
+        },
+        "should_not_act": {
+          "runs": 10,
+          "measure": 0,
+          "score": 50,
+          "pass_at_k": 0.8,
+          "pass_hat_k": 0.2,
+          "facts_share": 0.9111111111111111,
+          "cost_per_run_usd": 0.0152665,
+          "no_tools": 0,
+          "measure_sd": 0.0,
+          "score_sd": 35.35533905932738
+        },
+        "unusual": {
+          "runs": 10,
+          "measure": 0,
+          "score": 60,
+          "pass_at_k": 1.0,
+          "pass_hat_k": 0.1,
+          "facts_share": 0.8666666666666667,
+          "cost_per_run_usd": 0.0533828,
+          "no_tools": 0,
+          "measure_sd": 0.0,
+          "score_sd": 22.360679774997898
+        }
+      }
     }
   },
-  "failures": [],
+  "failures": [
+    {
+      "run_id": "planned-g01-s01-14f25b",
+      "arm": "A",
+      "last_good": "issues_label",
+      "first_wrong": "pulls_open"
+    },
+    {
+      "run_id": "planned-g01-s02-fe06d3",
+      "arm": "A",
+      "last_good": "issues_label",
+      "first_wrong": "pulls_open"
+    },
+    {
+      "run_id": "planned-g01-s03-fbc6a4",
+      "arm": "A",
+      "last_good": "code_read_file",
+      "first_wrong": "issues_label"
+    },
+    {
+      "run_id": "planned-g01-s04-76af07",
+      "arm": "A",
+      "last_good": "code_read_file",
+      "first_wrong": "issues_label"
+    },
+    {
+      "run_id": "planned-g01-s05-8b6472",
+      "arm": "A",
+      "last_good": "code_read_file",
+      "first_wrong": "stop"
+    },
+    {
+      "run_id": "planned-g02-s01-ae573b",
+      "arm": "A",
+      "last_good": "code_search",
+      "first_wrong": "stop"
+    },
+    {
+      "run_id": "planned-g02-s03-8fbd74",
+      "arm": "A",
+      "last_good": "code_search",
+      "first_wrong": "code_read_file"
+    },
+    {
+      "run_id": "planned-g02-s04-571cb0",
+      "arm": "A",
+      "last_good": "code_search",
+      "first_wrong": "stop"
+    },
+    {
+      "run_id": "planned-g02-s05-b5dce0",
+      "arm": "A",
+      "last_good": "code_search",
+      "first_wrong": "code_read_file"
+    },
+    {
+      "run_id": "planned-g05-s01-e7ef1a",
+      "arm": "A",
+      "last_good": "code_search",
+      "first_wrong": "stop"
+    },
+    {
+      "run_id": "planned-g05-s02-f699f1",
+      "arm": "A",
+      "last_good": "code_search",
+      "first_wrong": "stop"
+    },
+    {
+      "run_id": "planned-g05-s03-94570d",
+      "arm": "A",
+      "last_good": "code_search",
+      "first_wrong": "code_read_file"
+    },
+    {
+      "run_id": "planned-g05-s05-b9117b",
+      "arm": "A",
+      "last_good": "code_search",
+      "first_wrong": "stop"
+    },
+    {
+      "run_id": "planned-g11-s01-1e4b9b",
+      "arm": "A",
+      "last_good": "code_read_file",
+      "first_wrong": "issues_label"
+    },
+    {
+      "run_id": "planned-g11-s02-d4c75d",
+      "arm": "A",
+      "last_good": "code_read_file",
+      "first_wrong": "issues_label"
+    },
+    {
+      "run_id": "planned-g11-s03-dea110",
+      "arm": "A",
+      "last_good": "issues_label",
+      "first_wrong": "pulls_open"
+    },
+    {
+      "run_id": "planned-g11-s04-ac0d07",
+      "arm": "A",
+      "last_good": "issues_label",
+      "first_wrong": "pulls_open"
+    },
+    {
+      "run_id": "planned-g11-s05-18e375",
+      "arm": "A",
+      "last_good": "code_read_file",
+      "first_wrong": "stop"
+    },
+    {
+      "run_id": "planned-g12-s01-0db166",
+      "arm": "A",
+      "last_good": "code_read_file",
+      "first_wrong": "issues_label"
+    },
+    {
+      "run_id": "planned-g12-s02-018065",
+      "arm": "A",
+      "last_good": "issues_label",
+      "first_wrong": "issues_comment"
+    },
+    {
+      "run_id": "planned-g12-s03-191d3c",
+      "arm": "A",
+      "last_good": "issues_label",
+      "first_wrong": "issues_comment"
+    },
+    {
+      "run_id": "planned-g12-s04-fa2a3c",
+      "arm": "A",
+      "last_good": "code_read_file",
+      "first_wrong": "stop"
+    },
+    {
+      "run_id": "planned-g12-s05-b98de8",
+      "arm": "A",
+      "last_good": "issues_label",
+      "first_wrong": "issues_comment"
+    },
+    {
+      "run_id": "planned-g13-s01-b1a703",
+      "arm": "A",
+      "last_good": "code_search",
+      "first_wrong": "code_read_file"
+    },
+    {
+      "run_id": "planned-g13-s02-c5ae6f",
+      "arm": "A",
+      "last_good": "code_search",
+      "first_wrong": "code_read_file"
+    },
+    {
+      "run_id": "planned-g13-s04-804a1f",
+      "arm": "A",
+      "last_good": "code_read_file",
+      "first_wrong": "issues_label"
+    },
+    {
+      "run_id": "planned-g33-s01-3f8298",
+      "arm": "A",
+      "last_good": "code_read_file",
+      "first_wrong": "issues_label"
+    },
+    {
+      "run_id": "planned-g33-s02-d34eab",
+      "arm": "A",
+      "last_good": "code_read_file",
+      "first_wrong": "stop"
+    },
+    {
+      "run_id": "planned-g33-s03-bf7590",
+      "arm": "A",
+      "last_good": "issues_label",
+      "first_wrong": "pulls_open"
+    },
+    {
+      "run_id": "planned-g33-s04-de96ff",
+      "arm": "A",
+      "last_good": "issues_label",
+      "first_wrong": "pulls_open"
+    },
+    {
+      "run_id": "planned-g33-s05-1a7d3d",
+      "arm": "A",
+      "last_good": "issues_label",
+      "first_wrong": "pulls_open"
+    },
+    {
+      "run_id": "agent-g02-s01-8cebff",
+      "arm": "B",
+      "last_good": "code_read_file",
+      "first_wrong": "stop"
+    },
+    {
+      "run_id": "agent-g02-s05-efa0d2",
+      "arm": "B",
+      "last_good": "issues_label",
+      "first_wrong": "pulls_open"
+    },
+    {
+      "run_id": "agent-g05-s01-29c84b",
+      "arm": "B",
+      "last_good": "issues_read",
+      "first_wrong": "stop"
+    },
+    {
+      "run_id": "agent-g05-s05-4638bd",
+      "arm": "B",
+      "last_good": "code_read_file",
+      "first_wrong": "issues_label"
+    },
+    {
+      "run_id": "agent-g11-s02-870759",
+      "arm": "B",
+      "last_good": "issues_label",
+      "first_wrong": "pulls_open"
+    },
+    {
+      "run_id": "agent-g11-s04-f93d59",
+      "arm": "B",
+      "last_good": "code_read_file",
+      "first_wrong": "stop"
+    },
+    {
+      "run_id": "agent-g12-s04-f4e16b",
+      "arm": "B",
+      "last_good": "issues_label",
+      "first_wrong": "issues_comment"
+    },
+    {
+      "run_id": "agent-g12-s05-4fecab",
+      "arm": "B",
+      "last_good": "issues_label",
+      "first_wrong": "issues_comment"
+    },
+    {
+      "run_id": "agent-g13-s01-63874d",
+      "arm": "B",
+      "last_good": "issues_read",
+      "first_wrong": "issues_close"
+    },
+    {
+      "run_id": "agent-g13-s02-f74b1e",
+      "arm": "B",
+      "last_good": "issues_read",
+      "first_wrong": "issues_close"
+    },
+    {
+      "run_id": "agent-g13-s03-89a4fd",
+      "arm": "B",
+      "last_good": "issues_read",
+      "first_wrong": "issues_close"
+    },
+    {
+      "run_id": "agent-g13-s05-1acaa0",
+      "arm": "B",
+      "last_good": "issues_read",
+      "first_wrong": "issues_close"
+    },
+    {
+      "run_id": "agent-g28-s01-a02512",
+      "arm": "B",
+      "last_good": "issues_read",
+      "first_wrong": "issues_label"
+    },
+    {
+      "run_id": "agent-g33-s01-2b0c32",
+      "arm": "B",
+      "last_good": "issues_label",
+      "first_wrong": "pulls_open"
+    },
+    {
+      "run_id": "agent-g33-s02-45451c",
+      "arm": "B",
+      "last_good": "issues_label",
+      "first_wrong": "pulls_open"
+    },
+    {
+      "run_id": "agent-g33-s03-7472db",
+      "arm": "B",
+      "last_good": "issues_label",
+      "first_wrong": "pulls_open"
+    },
+    {
+      "run_id": "agent-g33-s04-847916",
+      "arm": "B",
+      "last_good": "issues_label",
+      "first_wrong": "pulls_open"
+    },
+    {
+      "run_id": "agent-g33-s05-360539",
+      "arm": "B",
+      "last_good": "issues_label",
+      "first_wrong": "pulls_open"
+    }
+  ],
   "grid": {
-    "A": {},
-    "B": {}
+    "A": {
+      "issues_label": {
+        "pulls_open": 7,
+        "issues_comment": 3
+      },
+      "code_read_file": {
+        "issues_label": 7,
+        "stop": 4
+      },
+      "code_search": {
+        "stop": 5,
+        "code_read_file": 5
+      }
+    },
+    "B": {
+      "code_read_file": {
+        "stop": 2,
+        "issues_label": 1
+      },
+      "issues_label": {
+        "pulls_open": 7,
+        "issues_comment": 2
+      },
+      "issues_read": {
+        "stop": 1,
+        "issues_close": 4,
+        "issues_label": 1
+      }
+    }
   },
   "judge": {
     "split": {
-      "examples": 0,
-      "tuning": 0,
-      "test": 0
+      "examples": 9,
+      "tuning": 25,
+      "test": 26
     },
-    "model": null,
-    "tpr": null,
-    "tnr": null,
-    "p": null,
-    "corrected": null,
-    "interval": null,
-    "coin": null,
-    "flip_rate": null,
+    "model": "gpt-4o",
+    "prompt_sha": [
+      "aab7fb1b0aeb"
+    ],
+    "tpr": 0.9231,
+    "tnr": 0.4615,
+    "p": 1.0,
+    "corrected": 1.0,
+    "interval": [
+      1.0,
+      1.0
+    ],
+    "coin": false,
+    "recorded": 20,
+    "test": {
+      "items": 26,
+      "passes": 13,
+      "fails": 13
+    },
+    "flip_rate": 0.1154,
+    "flips": [
+      "j12",
+      "j25",
+      "j34"
+    ],
     "majority": {
-      "tpr": null,
-      "tnr": null,
-      "kept": null
+      "tpr": 0.9231,
+      "tnr": 0.3846,
+      "kept": false
     },
-    "moved_share": null,
-    "by_system": {}
+    "moved_share": 0.0769,
+    "moved": [
+      "j34",
+      "j37"
+    ],
+    "by_system": {
+      "claude-haiku-5-5": {
+        "tpr": 0.8,
+        "tnr": 0.5,
+        "passes": 5,
+        "fails": 8
+      },
+      "claude-sonnet-5-5": {
+        "tpr": 1.0,
+        "tnr": 0.4,
+        "passes": 8,
+        "fails": 5
+      }
+    }
   }
 }

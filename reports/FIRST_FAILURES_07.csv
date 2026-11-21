@@ -1,0 +1,50 @@
+run_id,arm,last_good,first_wrong,reason
+planned-g01-s01-14f25b,A,issues_label,pulls_open,Opened a draft PR for the wrong component; earlier reads were legitimate evidence gathering but did not support this fix.
+planned-g01-s02-fe06d3,A,issues_label,pulls_open,Opened a draft PR for the wrong component; earlier reads were legitimate evidence gathering but did not support this fix.
+planned-g01-s03-fbc6a4,A,code_read_file,issues_label,Sent the unresolved $fill placeholder as the label; the boundary rejected it.
+planned-g01-s04-76af07,A,code_read_file,issues_label,Sent the unresolved $fill placeholder as the label; the boundary rejected it.
+planned-g01-s05-8b6472,A,code_read_file,stop,Stopped before required triage outputs were complete.
+planned-g02-s01-ae573b,A,code_search,stop,Stopped before required triage outputs were complete.
+planned-g02-s03-8fbd74,A,code_search,code_read_file,Read a nonexistent or unrelated file instead of recovering from empty search results.
+planned-g02-s04-571cb0,A,code_search,stop,Stopped before required triage outputs were complete.
+planned-g02-s05-b5dce0,A,code_search,code_read_file,Read a nonexistent or unrelated file instead of recovering from empty search results.
+planned-g05-s01-e7ef1a,A,code_search,stop,Stopped before required triage outputs were complete.
+planned-g05-s02-f699f1,A,code_search,stop,Stopped before required triage outputs were complete.
+planned-g05-s03-94570d,A,code_search,code_read_file,Read a nonexistent or unrelated file instead of recovering from empty search results.
+planned-g05-s05-b9117b,A,code_search,stop,Stopped before required triage outputs were complete.
+planned-g11-s01-1e4b9b,A,code_read_file,issues_label,Committed to the wrong issue category before completing the triage.
+planned-g11-s02-d4c75d,A,code_read_file,issues_label,Sent the unresolved $fill placeholder as the label; the boundary rejected it.
+planned-g11-s03-dea110,A,issues_label,pulls_open,Opened a draft PR for the wrong component; earlier reads were legitimate evidence gathering but did not support this fix.
+planned-g11-s04-ac0d07,A,issues_label,pulls_open,Opened a draft PR for the wrong component; earlier reads were legitimate evidence gathering but did not support this fix.
+planned-g11-s05-18e375,A,code_read_file,stop,Stopped before required triage outputs were complete.
+planned-g12-s01-0db166,A,code_read_file,issues_label,Sent the unresolved $fill placeholder as the label; the boundary rejected it.
+planned-g12-s02-018065,A,issues_label,issues_comment,Posted an incorrect or nonconcrete file instead of locating the responsible documentation and opening its draft PR.
+planned-g12-s03-191d3c,A,issues_label,issues_comment,Posted an incorrect or nonconcrete file instead of locating the responsible documentation and opening its draft PR.
+planned-g12-s04-fa2a3c,A,code_read_file,stop,Stopped before required triage outputs were complete.
+planned-g12-s05-b98de8,A,issues_label,issues_comment,Posted an incorrect or nonconcrete file instead of locating the responsible documentation and opening its draft PR.
+planned-g13-s01-b1a703,A,code_search,code_read_file,Read a nonexistent or unrelated file instead of recovering from empty search results.
+planned-g13-s02-c5ae6f,A,code_search,code_read_file,Read a nonexistent or unrelated file instead of recovering from empty search results.
+planned-g13-s04-804a1f,A,code_read_file,issues_label,Attempted a write on an issue whose discussion requires leaving it unchanged.
+planned-g33-s01-3f8298,A,code_read_file,issues_label,Sent the unresolved $fill placeholder as the label; the boundary rejected it.
+planned-g33-s02-d34eab,A,code_read_file,stop,Stopped before required triage outputs were complete.
+planned-g33-s03-bf7590,A,issues_label,pulls_open,Opened a draft PR for the wrong component; earlier reads were legitimate evidence gathering but did not support this fix.
+planned-g33-s04-de96ff,A,issues_label,pulls_open,Opened a draft PR for the wrong component; earlier reads were legitimate evidence gathering but did not support this fix.
+planned-g33-s05-1a7d3d,A,issues_label,pulls_open,Opened a draft PR for the wrong component; earlier reads were legitimate evidence gathering but did not support this fix.
+agent-g02-s01-8cebff,B,code_read_file,stop,Stopped before required triage outputs were complete.
+agent-g02-s05-efa0d2,B,issues_label,pulls_open,Opened a draft PR for the wrong component; earlier reads were legitimate evidence gathering but did not support this fix.
+agent-g05-s01-29c84b,B,issues_read,stop,Stopped before required triage outputs were complete.
+agent-g05-s05-4638bd,B,code_read_file,issues_label,Committed to the wrong issue category before completing the triage.
+agent-g11-s02-870759,B,issues_label,pulls_open,Opened a draft PR for the wrong component; earlier reads were legitimate evidence gathering but did not support this fix.
+agent-g11-s04-f93d59,B,code_read_file,stop,Stopped before required triage outputs were complete.
+agent-g12-s04-f4e16b,B,issues_label,issues_comment,Posted an incorrect or nonconcrete file instead of locating the responsible documentation and opening its draft PR.
+agent-g12-s05-4fecab,B,issues_label,issues_comment,Posted an incorrect or nonconcrete file instead of locating the responsible documentation and opening its draft PR.
+agent-g13-s01-63874d,B,issues_read,issues_close,Attempted a write on an issue whose discussion requires leaving it unchanged.
+agent-g13-s02-f74b1e,B,issues_read,issues_close,Attempted a write on an issue whose discussion requires leaving it unchanged.
+agent-g13-s03-89a4fd,B,issues_read,issues_close,Attempted a write on an issue whose discussion requires leaving it unchanged.
+agent-g13-s05-1acaa0,B,issues_read,issues_close,Attempted a write on an issue whose discussion requires leaving it unchanged.
+agent-g28-s01-a02512,B,issues_read,issues_label,Attempted a write on an issue whose discussion requires leaving it unchanged.
+agent-g33-s01-2b0c32,B,issues_label,pulls_open,Opened a draft PR for the wrong component; earlier reads were legitimate evidence gathering but did not support this fix.
+agent-g33-s02-45451c,B,issues_label,pulls_open,Opened a draft PR for the wrong component; earlier reads were legitimate evidence gathering but did not support this fix.
+agent-g33-s03-7472db,B,issues_label,pulls_open,Opened a draft PR for the wrong component; earlier reads were legitimate evidence gathering but did not support this fix.
+agent-g33-s04-847916,B,issues_label,pulls_open,Opened a draft PR for the wrong component; earlier reads were legitimate evidence gathering but did not support this fix.
+agent-g33-s05-360539,B,issues_label,pulls_open,Opened a draft PR for the wrong component; earlier reads were legitimate evidence gathering but did not support this fix.

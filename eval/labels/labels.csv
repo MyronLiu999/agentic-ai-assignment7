@@ -1,61 +1,61 @@
 id,label,reason
-j01,,
-j02,,
-j03,,
-j04,,
-j05,,
-j06,,
-j07,,
-j08,,
-j09,,
-j10,,
-j11,,
-j12,,
-j13,,
-j14,,
-j15,,
-j16,,
-j17,,
-j18,,
-j19,,
-j20,,
-j21,,
-j22,,
-j23,,
-j24,,
-j25,,
-j26,,
-j27,,
-j28,,
-j29,,
-j30,,
-j31,,
-j32,,
-j33,,
-j34,,
-j35,,
-j36,,
-j37,,
-j38,,
-j39,,
-j40,,
-j41,,
-j42,,
-j43,,
-j44,,
-j45,,
-j46,,
-j47,,
-j48,,
-j49,,
-j50,,
-j51,,
-j52,,
-j53,,
-j54,,
-j55,,
-j56,,
-j57,,
-j58,,
-j59,,
-j60,,
+j01,pass,all arguments with evidences
+j02,pass,all arguments with evidences
+j03,fail,previewStatement doesn't not exist.
+j04,fail,"""The last CI run shows the newestFirst keeps title order for ties test in src/reports.test.ts passing, because its fixtures share the same millisecond."" violate Unsupported test results and Invented facts"
+j05,fail,it just created PR but no any drafting
+j06,fail,"PR issue and ""Unknown keys are reported by Zod at the root rather than against a field."" doesn't have evidence to prove it."
+j07,fail,PR issue.
+j08,fail,PR issue
+j09,fail,PR issue
+j10,fail,PR issue
+j11,pass,The comment is supported by the issue and tool results.
+j12,fail,"Running the suite, test/reports.test.ts passes in full, so no existing test covers an impossible date. but actually no test exist"
+j13,fail,"The comment claims that dropping a file opens the CSV in the browser and produces an Uncaught TypeError in the console. However, no browser tests or console logs were provided to support these claims."
+j14,pass,The comment is supported by the source code and tool results.
+j15,pass,The comment is supported by the source code and tool results.
+j16,pass,The comment's explanation is supported by the source code.
+j17,pass,The comment is supported by the source code and tool results.
+j18,fail,"The comment incorrectly claims that sorting by a random UUID causes the order to change on each query, although sorting by a fixed ID is deterministic."
+j19,pass,The comment is supported by the source code and tool results.
+j20,fail,The comment makes unsupported claims about triage permissions and maintainer review requirements. The tool results do not establish that triage cannot close the listed issues or that a maintainer must review them separately.
+j21,fail,"The comment invents a specific import log stating ""expected 4 fields, got 2 at row 14,"" which is not present in the issue or tool results. The code only raises errors.rowShape with a row number, and no execution logs support the claimed message."
+j22,fail,"The comment incorrectly claims that scheduled exports are sent at 07:00 UTC each day, while the source code explicitly sets RUN_HOUR_UTC to 6. This contradicts the tool results."
+j23,fail,The comment incorrectly claims that parsePage rejects pageSize values above 100 with a validation error. The code actually uses Math.min() to cap pageSize at 100 without throwing an error.
+j24,pass,The comment is supported by the source code and documentation.
+j25,fail,"The comment claims that docs/API.md lists three accepted date formats, but the tool results do not include any content from that file. Therefore, the documentation claim is unsupported, even though the explanation of the date parser is supported by the code."
+j26,fail,"The explanation of the Unicode deduplication issue is supported by the source code and issue. However, the comment implies that the draft PR implements NFC normalization, while the tool results only confirm that PR-49 was opened with a proposed change. No code diff verifies the implementation."
+j27,pass,The comment is supported by the source code and tool results.
+j28,fail,"The comment correctly describes the documentation and code behavior. However, it claims that PR-23 adds the missing note, while the tool results only confirm that the PR was opened. No documentation changes are shown to verify that the note was actually added."
+j29,fail,"The comment invents an error message, ""Unterminated quoted field at row 2,"" which is not supported by the issue or tool results. The code instead raises errors.rowShape for mismatched column counts, and no upload logs confirm the claimed message."
+j30,pass,The comment is supported by the source code and tool results.
+j31,fail,"The comment incorrectly claims that escapeField only quotes fields containing commas, while the code also handles quotes and newlines. It also makes an unsupported claim that formatMinor uses commas as decimal separators for euro amounts, without inspecting its implementation."
+j32,fail,"The comment correctly describes the documentation and amount parser. However, it claims that PR-39 adds the missing paragraph, while the tool results only confirm that the PR was opened with a proposed change. No documentation diff verifies that the paragraph was added."
+j33,pass,The comment is supported by the source code and tool results.
+j34,pass,"The comment incorrectly claims that the hard-coded ""recipients"" text is on line 11 of src/report.tsx, while the code_search result explicitly places it on line 8. The bug explanation is otherwise supported, but the line-number claim misrepresents the retrieved evidence."
+j35,fail,"it implies that PR-9 already implements support for amounts without a leading zero, while the tool results only confirm that a PR was opened proposing the change. No code diff verifies the implementation."
+j36,pass,The comment is supported by the source code and tool results.
+j37,fail,"The comment incorrectly claims that GET /api/v1/health returns a 401 error when called without a token. The API documentation explicitly exempts the health endpoint from authentication, and the tool results provide no evidence for the claimed error response."
+j38,pass,The comment is supported by the source code and tool results.
+j39,fail,"it implies that PR-18 already implements the singular ""recipient"" fix, while the tool results only confirm that a PR was opened with the proposed change. No code diff verifies the implementation."
+j40,fail,"The comment invents a maintainer's historical statement, claiming that a maintainer previously flagged the issue and said ""resending a schedule should never move the run day."" No issue discussion, commit history, or tool result supports this claim."
+j41,fail,"The comment makes unsupported claims about the frontend validation in src/components/ReportForm.tsx. It states that the form already enforces the 120-character name limit but not the category or recipient limits, while the tool results never inspect this component. The backend validation rules do not establish the frontend behavior."
+j42,fail,"The comment correctly explains the ZodError handling issue. However, it implies that PR-24 already implements the fix for unrecognized keys, while the tool results only confirm that a PR was opened proposing the change. No code diff verifies the implementation."
+j43,pass,The comment is supported by the tool results.
+j44,pass,The comment is supported by the source code and tool results.
+j45,fail,"The comment overgeneralizes by claiming that other components pass their locale to t(). The tool results show that ExportButton.tsx also calls t() without a locale argument. Therefore, the claim is not fully supported by the retrieved code."
+j46,fail,The comment invents a specific count of 312 imported CLP rows and claims that all of them were stored with incorrect rounding. Neither the issue nor the tool results provide this transaction count or evidence that all rows were affected. The technical explanation is otherwise supported.
+j47,fail,"The comment incorrectly claims that parseAmount already supports trailing minus signs and parses ""75-"" as a negative amount. The code only handles a leading minus using startsWith(""-""), and the validation regex rejects trailing minus signs. Therefore, ""75-"" returns null rather than being imported as a negative amount."
+j48,fail,"The comment invents a historical maintainer statement, claiming that a maintainer previously said ""an empty export is still a useful signal for some teams."" Neither the issue nor the tool results contain any evidence of this earlier request or quotation."
+j49,fail,"The comment makes an unsupported claim that docs/PERFORMANCE.md already recommends SQL aggregation for endpoints handling hundreds of thousands of rows. This document was never retrieved or inspected in the tool results. The comment also describes the proposed SQL GROUP BY change as if it were already implemented, without supporting code evidence."
+j50,pass,The comment is supported by the tool results.
+j51,fail,"The comment concludes that nothing is broken and attributes the difference entirely to account scope without sufficient evidence. The report query also supports category filtering, and the tool results contain no actual transaction data confirming why the counts differ. The explanation is plausible but not established as fact."
+j52,fail,"The comment incorrectly generalizes that other components pass their locale through. The tool results show that ExportButton.tsx also calls t() without a locale argument. Therefore, this claim is not fully supported by the retrieved code, although the explanation of the Toast bug itself is correct."
+j53,pass,The comment is supported by the issue and tool results.
+j54,pass,The comment is supported by the issue and tool results.
+j55,fail,"The comment makes an unsupported claim that uploads with invalid credentials are stored in a bucket's quarantine folder and that no data is lost. Neither the issue nor the tool results provide evidence for this behavior. The other configuration guidance is supported, but this claim introduces unverified facts."
+j56,pass,"The comment accurately explains the existing deduplication behavior, supported by dedupeKey(), dedupe(), and keysFor() in src/ingest/dedupe.ts."
+j57,pass,"The comment accurately explains that the report preview is limited to the earliest 50 transactions, which are then sorted newest-first in the UI."
+j58,pass,The comment is supported by the issue and tool results.
+j59,pass,The comment is supported by the issue and tool results.
+j60,pass,The comment is supported by the issue and tool results.

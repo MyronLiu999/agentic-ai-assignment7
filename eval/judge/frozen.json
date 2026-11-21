@@ -1,0 +1,18 @@
+{
+  "prompt_sha": "aab7fb1b0aeb",
+  "frozen_at": "2026-11-20T22:25:57.427130+00:00",
+  "selection": "Second tuning iteration; no held-out test verdicts inspected. Stop tuning and report remaining limitations.",
+  "tuning": {
+    "items": 25,
+    "tpr": 1.0,
+    "tnr": 0.4444444444444444,
+    "unparsed": 0
+  },
+  "files": {
+    "prompts/judge.md": "d59dadf05e538312c3ebd5e1b5a8b3267aaf4829db1ed2c2d870d862653e268a",
+    "eval/judge/criterion.md": "a3136dcef48e6c759eefb1a03db227422cec0721593bfcfda2f14b01cbc576f6",
+    "eval/labels/labels.csv": "858ca0aed0ca3a3bed070594eab26e9f0e5d078d46e920b3a87d7cda50d898ed",
+    "eval/labels/split.yaml": "b07c5db19c69f95285c4dd5e40d1e50038584bd53188d1d0920d65ecf99b5d1a",
+    "eval/judge.py": "b5c8c28549d9800f6df08c9b9419641ef3f893d1fd3e5d35c7ca0f69cdfcde28"
+  }
+}

@@ -138,5 +138,44 @@ class GroundedTests(unittest.TestCase):
             self.assertEqual(row['facts']['present'], row['facts']['total'])
 
 
+class JudgeTests(unittest.TestCase):
+    def test_rates_count_both_ways(self):
+        from eval.judge import rates
+        verdicts = {'a': 'pass', 'b': 'fail', 'c': 'pass', 'd': 'fail'}
+        labels = {'a': 'pass', 'b': 'pass', 'c': 'fail', 'd': 'fail', 'e': 'pass'}   # e: not judged, left out
+        self.assertEqual(rates(verdicts, labels), (0.5, 0.5))
+
+    def test_correct_and_coin_guard(self):
+        from eval.judge import CoinJudge, correct
+        self.assertAlmostEqual(correct(0.85, 0.9, 0.8), 0.65 / 0.7)
+        self.assertEqual(correct(0.99, 0.9, 0.8), 1.0)                # clipped
+        self.assertEqual(correct(0.05, 0.9, 0.8), 0.0)
+        for coin in ([0.5, 0.55, 0.5], [0.7, 1.0, 0.05], [0.9, 1.0, 0.0]):
+            with self.assertRaises(CoinJudge):
+                correct(*coin)
+        self.assertTrue(issubclass(CoinJudge, ValueError))
+
+    def test_bootstrap_brackets_and_repeats(self):
+        from eval.judge import bootstrap, correct, rates
+        labels = {f'x{i}': ('pass' if i % 2 else 'fail') for i in range(26)}
+        verdicts = dict(labels, x1='fail', x2='pass')
+        tpr, tnr = rates(verdicts, labels)
+        lo, hi = bootstrap(verdicts, labels, 0.6, resamples=2000, seed=0)
+        self.assertLessEqual(lo, correct(0.6, tpr, tnr))
+        self.assertGreaterEqual(hi, correct(0.6, tpr, tnr))
+        self.assertEqual((lo, hi), bootstrap(verdicts, labels, 0.6, resamples=2000, seed=0))
+        coin = {i: 'pass' for i in labels}                               # every resample is a coin
+        self.assertEqual(bootstrap(coin, labels, 0.6), (None, None))
+
+    def test_reply_parsing(self):
+        from eval.judge import parse_reply
+        self.assertEqual(parse_reply('{"reasoning": "cites a test it never ran", "answer": "Fail"}'),
+                         ('fail', 'cites a test it never ran'))
+        self.assertEqual(parse_reply('```json\n{"reasoning": "ok", "answer": "Pass"}\n```')[0], 'pass')
+        self.assertIsNone(parse_reply('I think it passes.')[0])
+        self.assertEqual(parse_reply('{"reasoning": "The function returns {} when missing.", "answer": "Pass"}'),
+                         ('pass', 'The function returns {} when missing.'))
+
+
 if __name__ == '__main__':
     unittest.main()

@@ -236,6 +236,22 @@ j25 and j34 are listed in eval/judge/for_a_person.txt for human review. List/lon
 formatting changes the verdict for j34 and j37. These effects show that repeated
 calls and presentation changes can alter judgements despite fixed evidence.
 
+Formatting test (task 7). Both moved verdicts come from the `list` version, and
+both moved the same way, from run 1's Fail to Pass; no `long` version moved.
+For j34, which the human label passes, the list happened to agree with the label.
+For j37, which the human label fails, the list version hid the unsupported claim:
+the judge called the comment "entirely supported". Two items are too few to
+establish a lean, but the direction is toward passing claims written as bullets. Bullets drop the connecting sentences, and those
+sentences are where an unsupported "because" or "already" sits. What I would
+change: add one line to the prompt telling the judge to ignore layout. It should
+split the comment into its individual claims the same way whether they arrive as
+prose or as bullets, and judge each one. The alternative is to convert every
+comment to plain prose before it reaches the judge. Either change makes a
+different judge: its prompt_sha changes, so its TPR and TNR on the test set, its
+flip rate and this formatting test all have to be measured again before its
+numbers replace these. Neither change was made here, because the prompt was
+frozen before the test runs.
+
 | Source system (test only) | Human passes / fails | TPR | TNR |
 |---|---:|---:|---:|
 | claude-haiku-5-5 | 5 / 8 | 4/5 = 80% | 4/8 = 50% |
@@ -289,6 +305,9 @@ Claude Code (Claude Opus 5.5) drew and committed the Part D split, wrote
 `tests/test_eval.py`. It checked the arithmetic against the checker's
 recomputation and the coin probe, and ran the plumbing on the free
 PassEverything judge. It wrote no criterion line, no label and no suggested label.
+After the final commit, Claude Code also renormalized line endings to LF, rewrote the
+Assignment 7 entry in CHANGES.md, and drafted the formatting-test paragraph in
+Part D from the verdict files, for the student to review.
 
 ## Part D tuning update
 

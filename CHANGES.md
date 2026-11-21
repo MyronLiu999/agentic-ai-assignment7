@@ -34,6 +34,6 @@ Removals are logged like additions.
 - **Constrained:** multi-agent decomposition, measured against one agent at the same budget and not merged; RepoMind stays one agent
 
 ## Assignment 7
-- **Added:** 30 source-grounded tasks, 60 trace-review notes, observed-state evaluation, finite-sample statistics, trajectory metrics, result export and 17 evaluation tests, and metered judge validation.
-- **Removed:** nothing from the starter.
-- **Constrained:** only observed state determines passes; scripted measurements remain separate; the 80-run comparison uses the frozen subset and threshold; the judge uses 60 supplied human labels, a frozen prompt and held-out validation; remaining checker limitations are documented.
+- **Added:** an evaluation harness: a versioned 30-task golden set with a grounded check that reads each run's end state from the tracker; five trajectory metrics; pass@k, pass^k, spreads and 95% intervals over sweeps; result export for both arms; 17 evaluation tests; and a judge validated against 60 hand-written labels on a held-out test set, with its pass rate corrected and a coin refused.
+- **Removed:** single-run claims. A difference between two ways is no longer read off one run, or off one sweep: it is a gain with an interval over five sweeps of the same subset, and a judge's pass rate is no longer reported uncorrected.
+- **Constrained:** every later claim, to a run count, a spread and a bar set in advance: the subset was committed before the first Part C run, and the bar, its sweeps, spreads, group floor and prediction before either arm's fourth sweep (`eval/thresholds/claim.yaml`); the judge, to a frozen prompt and its rates on held-out labels only.
